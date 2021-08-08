@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CIRCULR NAV</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="https://cdn.jsdelivr.net/npm/circular-revealer@0.0.8/dist/index.iife.js"></script>
+	</head>
+	<body>
+		<header>
+			<div>
+				<button class="header__button nav-btn-js" type="button"></button>
+				<nav class="header__nav nav-js" data-active="false">
+					<ul class="header__menu">
+						<li class="header__menu-item"><a href="#">Home</a></li>
+						<li class="header__menu-item"><a href="#">Projects</a></li>
+						<li class="header__menu-item"><a href="#">About</a></li>
+						<li class="header__menu-item"><a href="#">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<h1>A_Y<br />QR*</h1>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const revealerNav = window.revealer({
+					revealElementSelector: ".nav-js",
+					options: {
+						anchorSelector: ".nav-btn-js",
+					},
+				});
+
+				const actionBtn = document.querySelector(".nav-btn-js");
+				actionBtn.addEventListener("click", () => {
+					if (!revealerNav.isRevealed()) {
+						revealerNav.reveal();
+						actionBtn.setAttribute("data-open", true);
+					} else {
+						revealerNav.hide();
+						actionBtn.setAttribute("data-open", false);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
